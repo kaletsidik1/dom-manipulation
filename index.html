@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Details</title>
+</head>
+<body>
+  <script>
+    // Create a form element
+    const form = document.createElement("form");
+
+    // Create fieldset
+    const fieldset = document.createElement("fieldset");
+    const legend = document.createElement("legend");
+    legend.textContent = "Employee Details";
+    fieldset.appendChild(legend);
+
+    // Helper function to create label + input pair
+    function createInput(labelText, inputType, inputName) {
+      const label = document.createElement("label");
+      label.textContent = labelText + ": ";
+      
+      const input = document.createElement("input");
+      input.type = inputType;
+      input.name = inputName;
+
+      label.appendChild(input);
+      fieldset.appendChild(label);
+      fieldset.appendChild(document.createElement("br"));
+      return input;
+    }
+
+    // First name
+    createInput("First name", "text", "firstName");
+
+    // Last name
+    createInput("Last name", "text", "lastName");
+
+    // Gender (radio buttons)
+    const genderLabel = document.createElement("label");
+    genderLabel.textContent = " ";
+    const male = document.createElement("input");
+    male.type = "radio";
+    male.name = "gender";
+    male.value = "Male";
+    genderLabel.appendChild(male);
+    genderLabel.append(" Male ");
+
+    const female = document.createElement("input");
+    female.type = "radio";
+    female.name = "gender";
+    female.value = "Female";
+    genderLabel.appendChild(female);
+    genderLabel.append(" Female ");
+
+    fieldset.appendChild(genderLabel);
+    fieldset.appendChild(document.createElement("br"));
+
+    // Employee ID
+    createInput("Employee ID", "text", "empId");
+
+    // Designation
+    createInput("Designation", "text", "designation");
+
+    // Phone Number
+    createInput("Phone Number", "text", "phone");
+
+    // Submit button
+    const submitBtn = document.createElement("button");
+    submitBtn.type = "submit";
+    submitBtn.textContent = "Submit";
+    fieldset.appendChild(submitBtn);
+
+    // Append everything
+    form.appendChild(fieldset);
+    document.body.appendChild(form);
+  </script>
+</body>
+</html>
